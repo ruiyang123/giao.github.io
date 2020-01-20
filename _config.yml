@@ -1,3 +1,10 @@
 theme: jekyll-theme-leap-day
-title: Welcome to Octocat's homepage!
+title: Welcome to Octocat's homepage! #博客的标题
+SEOTitle : Lao 8 eat shit 
+email: rui.yang.ecl@gmail.com
 description: Feel free to bookmark this to keep an eye on my project updates
+
+sidebar: true
+sidebar-about-description : "奥力给，干就完了兄弟们！！！"
+
+
