@@ -29,9 +29,9 @@
                     <ul class="top-nav">
                       <li><a href="#intro">Introduction <span class="indicator"><i class="fa fa-angle-right"></i></span></a></li>
                       <li><a href="#features">The Technology Behind DeepFake <span class="indicator"><i class="fa fa-angle-right"></i></span></a></li>
-                      <li><a href="#responsive">Applications<span class="indicator"><i class="fa fa-angle-right"></i></span></a></li>
-                      <li><a href="#portfolio">Influence and security<span class="indicator"><i class="fa fa-angle-right"></i></span></a></li>
-                      <li><a href="#team"> Prospective<span class="indicator"><i class="fa fa-angle-right"></i></span></a></li>
+                      <li><a href="#responsive">Influence and security<span class="indicator"><i class="fa fa-angle-right"></i></span></a></li>
+                      <li><a href="#portfolio">Prospective<span class="indicator"><i class="fa fa-angle-right"></i></span></a></li>
+                      <li><a href="#team"> Reference<span class="indicator"><i class="fa fa-angle-right"></i></span></a></li>
                       <li><a href="#contact">Get in Touch <span class="indicator"><i class="fa fa-angle-right"></i></span></a></li>
                     </ul>
                   </nav>
@@ -70,6 +70,8 @@
               <div class="col-md-8 col-md-offset-2 wp1">
                 <h1 class="arrow">Introduction</h1>
                 <p> From wikipedia, The definition of <em>DeepFakes</em> :<a href="https://en.wikipedia.org/wiki/Deepfake">a branch of synthetic media in which a person in an existing image or video is replaced with someone else's likeness using artificial neural networks.</a>
+
+                <img class="alignnone size-full wp-image-8370" src="img/dp.png" alt="" width="512" height="250" sizes="(max-width: 1024px) 100vw, 1024px">
 
                 <p>It means that DeepFake is not one single technology but contains a lot of technologies of computer vision
                 	such as Face detection, image segmentation, image fusion etc.
@@ -114,11 +116,65 @@
 
                   <img src="img/nn.png" height="500" width="400"  alt="Portfolio Item"/>
 
-                  <p>The basic idea behind ANN is that we use a node to simulate biological neural. And we use a lot of nodes and use basic mathematical operations to link them to create a network. The figure above shows that at the input layer there are n nodes and the input value is X<sub>i</sub>. For each X<sub>i</sub> input, we link a weight(w<sub>i</sub>) to it. Then we cumulate like &sum;X<sub>i</sub>w<sub>i</sub>. Then we use an activation function to transform this value or more specifically is to add non-linear property.
+                  <p>The basic idea behind ANN(artifical neural network) is that we use a node to simulate biological neural. And we use a lot of nodes and use basic mathematical operations to link them to create a network. The figure above shows that at the input layer there are n nodes and the input value is X<sub>i</sub>. For each X<sub>i</sub> input, we link a weight(w<sub>i</sub>) to it. Then we cumulate like &sum;X<sub>i</sub>w<sub>i</sub>. Then we use an activation function to transform this value or more specifically is to add non-linear property. Generally speaking, the ANN can simulate any functions linear or non linear.
+                    <br/>
 
-
-
+                  Generally speaking, the ANN can simulate any functions linear or non-linear. For a classical machine learning problems like supervised learning, we use a large dataset with labels, and we calculate the error between the output and the label to create the gradient Then we can use back propagation gradient descent to train our network.
                   </p>
+
+                 <h2>CNN(convolutional neural network)</h2>
+                 <p> A convolutional Neural Network is a kind of ANN that use convolution kernel to detect the image.
+                  <img class="qc rw ey t u ig ak ip" width="600" height="300" role="presentation" src="https://miro.medium.com/max/3288/1*uAeANQIOQPqWZnnuH-VEyw.jpeg">
+                  This figure shows the structure of CNN that is used for solving handwritten digit recognition(A basic probleme of computer vision).
+
+                  For beginners, it seems very complicated. But we don't need to understand all the techniques behind this.So just forget the convolution kernel or max-pooling things. We focus on the input and the output. The input is a figure and the output is a vecteur.
+                  We just admit the truth that CNN is good at detecting the structure or profil of an image.  
+                 </p>
+                 <h2>Auto-Encoder(core technologie)</h2>
+                 <p>An autoencoder is a type of artificial neural network used to learn efficient data codings in an unsupervised manner. The aim of an autoencoder is to learn a representation in the latent space (encoding) for a set of data, typically for dimensionality reduction, by training the network to ignore signal “noise”.
+
+                 for exemple in the handwriten digit recognition.</p>
+                 <img class="alignnone size-full wp-image-8370" src="img/auto_encoder.png" alt="" width="512" height="250" sizes="(max-width: 1024px) 100vw, 1024px"/>
+
+               <p>  The input is a image (28*28). The input dimension is 784. But in fact that a lot of space or dimension is useless for classification.
+                 Then we can figure out a little about the structure. Here we have a encoder with blue, a decoder with green. and in the middle it's a vector of dimension 10. The vector represents the projection of input image in the latent space.</p>
+
+                <p> There are three CNN hidden layers and one fully connected hidden layer. As we all know, the CNN can help machine to detect the profil of the image and understand the content. Each neural can make a descion. And finally we use a fully connected layer to combine all these descions to make the finally descion. We can find the dimension of output vector from the encoder is only 10. That's beacuse the task is very simple and the dataset is nothing than handwritten digit. And we only have 10 classes.</p>
+
+                <p>After encoder we successfully project a image(28*28) to a vector 10. And then we need to recovery this vectot to a image. So we can find there is a structure named DeCNN that means deconvolution neural network. So what is that? For a normal CNN the input <b>X</b> with dimension 4*4, we use a kernal <b>C</b> size(3*3) the output <b>Y</b> should be a matrix (2*2). And if we expand the matrix to a vector the formule to calculate is Y = C*X</p> 
+
+              <img class="alignnone size-full wp-image-8370" src="img/decnn.png" alt="" width="300" height="100" sizes="(max-width: 1024px) 100vw, 1024px"/>
+
+              <p> We can find the Y is (4*1), C is (4*16) and the X is (16*1). So if we want to increase the input size, we just use the transpose of C to product Y. That's the inverse of CNN</p>
+
+              <p>Generally speaking, the auto-encoder is just a technologie that make a projection to latent space. Generally we can compress the input information and abstract the information.</p>
+
+              <h2>Back to Face Swap</h2>
+              <p> Here is the basic structure of face swap</p>
+              <img class="wp-image-8427 size-full aligncenter" src="https://www.alanzucconi.com/wp-content/uploads/2018/03/deepfakes_01d.png" alt="" width="750" height="327" srcset="https://www.alanzucconi.com/wp-content/uploads/2018/03/deepfakes_01d.png 750w, https://www.alanzucconi.com/wp-content/uploads/2018/03/deepfakes_01d-300x131.png 300w, https://www.alanzucconi.com/wp-content/uploads/2018/03/deepfakes_01d-700x305.png 700w, https://www.alanzucconi.com/wp-content/uploads/2018/03/deepfakes_01d-24x10.png 24w, https://www.alanzucconi.com/wp-content/uploads/2018/03/deepfakes_01d-36x16.png 36w, https://www.alanzucconi.com/wp-content/uploads/2018/03/deepfakes_01d-48x21.png 48w" sizes="(max-width: 750px) 100vw, 750px">
+              <p>The structure inside the encoder and decoder is just some convolution neural networks stack together. Just like the handwritten digit recognition</p>
+
+              <p> so we can find that there are an encoder and two decoders A and B.
+We want the encoder can find something common. That means the vector after the encoder can tell us if this face is smiling or not, if the eyes are closed or not, if she is speaking or not. And the encoder can tell us something special about this face.Like the shape of the eyes or the shape of the mouth. And that's why we need to train two decoders for each face but only one encoder for two faces</p>
+
+<p> But how it is possible? </p>
+
+<img class="qc rw ey t u ig ak ip" width="300" height="300" role="presentation" src="img/train.png">
+<p> During the training process, we input the picture of A and restore the face of A through the encoder and decoderA; then we input the picture of B and restore the face of B through the same encoder but different decoders. This process is continuously iterated until the loss drops to a threshold. </p>
+
+<center>
+	<img src="img/encoder.png" width="30%" height="30%" />
+	<img src="img/decoder.png" width="30%" height="30%"/>
+</center>
+<p>We found that the entire network structure is very simple, just a superposition of some CNN</p>
+<center>
+	<img src="img/detail1.png" width="30%" height="30%" />
+	<img src="img/detail2.png" width="30%" height="30%"/>
+</center>
+
+<p>There is only one thing special. That is the function PixelShuffler() in the upscale. It can reduce the number of filters to 1/4 and double the width and height This layer may be used to reduce the spatial dependency of the image and increase the difficulty of learning, and the result is more reliable</p>
+
+<p>Finally, I want to say that if you want to train your own network, you can use GAN or try to change the error function or use mask, etc.</p>
       
                 <!--  <div class="col-md-4 wp2">
                     <div class="icon">
@@ -151,253 +207,78 @@
           </div>
         </section>
         <section class="text-center" id="responsive">
-          <div class="container-fluid nopadding responsive-services">
-            <div class="wrapper">
-              <div class="iphone">
-                <div class="wp3"></div>
-              </div>
-              <div class="fluid-white"></div>
-            </div>
-            <div class="container designs">
-              <div class="row">
-                <div class="col-md-5 col-md-offset-7">
-                  <div id="servicesSlider">
-                    <ul class="slides">
-                      <li>
-                        <h1 class="arrow">Responsive Design Specialists</h1>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nulla non metus pulvinar imperdiet. Praesent non adipiscing libero. </p>
-                        <p>
-                        Mauris ultrices odio vitae nulla ultrices iaculis. Nulla rhoncus odio eu lectus faucibus facilisis. Maecenas ornare augue vitae sollicitudin accumsan. </p>
-                        <p>Etiam eget libero et erat eleifend consectetur a nec lectus. Sed id tellus lorem. Suspendisse sed venenatis odio, quis lobortis eros.</p>
-                      </li>
-                      <li>
-                        <h1 class="arrow">Bootstrap Professionals</h1>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nulla non metus pulvinar imperdiet. Praesent non adipiscing libero. </p>
-                        <p>
-                        Mauris ultrices odio vitae nulla ultrices iaculis. Nulla rhoncus odio eu lectus faucibus facilisis. Maecenas ornare augue vitae sollicitudin accumsan. </p>
-                        <p>Etiam eget libero et erat eleifend consectetur a nec lectus. Sed id tellus lorem. Suspendisse sed venenatis odio, quis lobortis eros.</p>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-        <section class="swag text-center">
-          <div class="container">
+                 <div class="container">
             <div class="row">
-              <div class="col-md-8 col-md-offset-2">
-                <h1>I got 99 Problems<span>but <em>design</em> 'aint one</span></h1>
-                <a href="#portfolio" class="down-arrow-btn"><i class="fa fa-chevron-down"></i></a>
-              </div>
-            </div>
-          </div>
-        </section>
-        <section class="portfolio text-center section-padding" id="portfolio">
-          <div class="container">
-            <div class="row">
-              <div id="portfolioSlider">
-                <ul class="slides">
-                  <li>
-                    <div class="col-md-4 wp4">
-                      <div class="overlay-effect effects clearfix">
-                        <div class="img">
-                          <img src="img/portfolio-01.jpg" alt="Portfolio Item">
-                          <div class="overlay">
-                            <a href="#" class="expand"><i class="fa fa-search"></i><br>View More</a>
-                            <a class="close-overlay hidden">x</a>
-                          </div>
-                        </div>
-                      </div>
-                      <h2>Creative Minds</h2>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nulla non metus pulvinar imperdiet. Praesent non adipiscing libero.</p>
-                    </div>
-                    <div class="col-md-4 wp4 delay-05s">
-                      <div class="overlay-effect effects clearfix">
-                        <div class="img">
-                          <img src="img/portfolio-02.jpg" alt="Portfolio Item">
-                          <div class="overlay">
-                            <a href="#" class="expand"><i class="fa fa-search"></i><br>View More</a>
-                            <a class="close-overlay hidden">x</a>
-                          </div>
-                        </div>
-                      </div>
-                      <h2>Creative Hearts</h2>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nulla non metus pulvinar imperdiet. Praesent non adipiscing libero.</p>
-                    </div>
-                    <div class="col-md-4 wp4 delay-1s">
-                      <div class="overlay-effect effects clearfix">
-                        <div class="img">
-                          <img src="img/portfolio-03.jpg" alt="Portfolio Item">
-                          <div class="overlay">
-                            <a href="#" class="expand"><i class="fa fa-search"></i><br>View More</a>
-                            <a class="close-overlay hidden">x</a>
-                          </div>
-                        </div>
-                      </div>
-                      <h2>Creative Ideas</h2>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nulla non metus pulvinar imperdiet. Praesent non adipiscing libero.</p>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="col-md-4 wp4">
-                      <div class="overlay-effect effects clearfix">
-                        <div class="img">
-                          <img src="img/portfolio-01.jpg" alt="Portfolio Item">
-                          <div class="overlay">
-                            <a href="#" class="expand"><i class="fa fa-search"></i><br>View More</a>
-                            <a class="close-overlay hidden">x</a>
-                          </div>
-                        </div>
-                      </div>
-                      <h2>Creative Minds</h2>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nulla non metus pulvinar imperdiet. Praesent non adipiscing libero.</p>
-                    </div>
-                    <div class="col-md-4 wp4 delay-05s">
-                      <div class="overlay-effect effects clearfix">
-                        <div class="img">
-                          <img src="img/portfolio-02.jpg" alt="Portfolio Item">
-                          <div class="overlay">
-                            <a href="#" class="expand"><i class="fa fa-search"></i><br>View More</a>
-                            <a class="close-overlay hidden">x</a>
-                          </div>
-                        </div>
-                      </div>
-                      <h2>Creative Hearts</h2>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nulla non metus pulvinar imperdiet. Praesent non adipiscing libero.</p>
-                    </div>
-                    <div class="col-md-4 wp4 delay-1s">
-                      <div class="overlay-effect effects clearfix">
-                        <div class="img">
-                          <img src="img/portfolio-03.jpg" alt="Portfolio Item">
-                          <div class="overlay">
-                            <a href="#" class="expand"><i class="fa fa-search"></i><br>View More</a>
-                            <a class="close-overlay hidden">x</a>
-                          </div>
-                        </div>
-                      </div>
-                      <h2>Creative Ideas</h2>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nulla non metus pulvinar imperdiet. Praesent non adipiscing libero.</p>
-                    </div>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </section>
-        <div class="ignite-cta text-center">
-          <div class="container">
-            <div class="row">
-              <div class="col-md-12">
-                <a href="#" class="ignite-btn">Ignite Your Passion</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <section class="team text-center section-padding" id="team">
-          <div class="container">
-            <div class="row">
-              <div class="col-md-12">
-                <h1 class="arrow">We're a team that adore what we do</h1>
-              </div>
-            </div>
-            <div class="row">
-              <div class="team-wrapper">
-                <div id="teamSlider">
-                  <ul class="slides">
-                    <li>
-                      <div class="col-md-4 wp5">
-                        <img src="img/team-01.png" alt="Team Member">
-                        <h2>Jon Snow</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nulla non metus pulvinar imperdiet. Praesent non adipiscing libero.</p>
-                        <div class="social">
-                          <ul class="social-buttons">
-                            <li><a href="#" class="social-btn"><i class="fa fa-dribbble"></i></a></li>
-                            <li><a href="#" class="social-btn"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="#" class="social-btn"><i class="fa fa-envelope"></i></a></li>
-                          </ul>
-                        </div>
-                      </div>
 
-                      <div class="col-md-4 wp5 delay-05s">
-                        <img src="img/team-02.png" alt="Team Member">
-                        <h2>Cersei Lannister</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nulla non metus pulvinar imperdiet. Praesent non adipiscing libero.</p>
-                        <div class="social">
-                          <ul class="social-buttons">
-                            <li><a href="#" class="social-btn"><i class="fa fa-dribbble"></i></a></li>
-                            <li><a href="#" class="social-btn"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="#" class="social-btn"><i class="fa fa-envelope"></i></a></li>
-                          </ul>
-                        </div>
-                      </div>
-                      <div class="col-md-4 wp5 delay-1s">
-                        <img src="img/team-03.png" alt="Team Member">
-                        <h2>Jamie Lannister</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nulla non metus pulvinar imperdiet. Praesent non adipiscing libero.</p>
-                        <div class="social">
-                          <ul class="social-buttons">
-                            <li><a href="#" class="social-btn"><i class="fa fa-dribbble"></i></a></li>
-                            <li><a href="#" class="social-btn"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="#" class="social-btn"><i class="fa fa-envelope"></i></a></li>
-                          </ul>
-                        </div>
-                      </div>
-                    </li>
-                    <li>
-                      <div class="col-md-4 wp5">
-                        <img src="img/team-01.png" alt="Team Member">
-                        <h2>Jon Snow</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nulla non metus pulvinar imperdiet. Praesent non adipiscing libero.</p>
-                        <div class="social">
-                          <ul class="social-buttons">
-                            <li><a href="#" class="social-btn"><i class="fa fa-dribbble"></i></a></li>
-                            <li><a href="#" class="social-btn"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="#" class="social-btn"><i class="fa fa-envelope"></i></a></li>
-                          </ul>
-                        </div>
-                      </div>
-                      <div class="col-md-4 wp5 delay-05s">
-                        <img src="img/team-02.png" alt="Team Member">
-                        <h2>Cersei Lannister</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nulla non metus pulvinar imperdiet. Praesent non adipiscing libero.</p>
-                        <div class="social">
-                          <ul class="social-buttons">
-                            <li><a href="#" class="social-btn"><i class="fa fa-dribbble"></i></a></li>
-                            <li><a href="#" class="social-btn"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="#" class="social-btn"><i class="fa fa-envelope"></i></a></li>
-                          </ul>
-                        </div>
-                      </div>
-                      <div class="col-md-4 wp5 delay-1s">
-                        <img src="img/team-03.png" alt="Team Member">
-                        <h2>Jamie Lannister</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nulla non metus pulvinar imperdiet. Praesent non adipiscing libero.</p>
-                        <div class="social">
-                          <ul class="social-buttons">
-                            <li><a href="#" class="social-btn"><i class="fa fa-dribbble"></i></a></li>
-                            <li><a href="#" class="social-btn"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="#" class="social-btn"><i class="fa fa-envelope"></i></a></li>
-                          </ul>
-                        </div>
-                      </div>
-                    </li>
-                  </ul>
+
+              <div class="col-md-12">
+
+                <h1 class="arrow">Influence and security</h1>
+<h2>Fake News</h2>
+<p>Earlier, Nancy Pelosi, the speaker of the US House of Representatives, experienced a Fake video. Someone made a video of her speech through editing, stitching and slow-motion. Although she didn't use AI technology, she looked a little unconscious, stuttered, spoke slowly, like drunk. </p>
+<img class="alignnone size-full wp-image-8370" src="img/trump.png" alt="" width="300" height="500" sizes="(max-width: 1024px) 100vw, 1024px"/>
+
+<p>The video even attracted the ridicule of President Trump (the two have always been different).</p>
+
+<p>It is puzzling that these social platforms did not choose to block fake videos in the first place. In fact, it was precisely because Facebook refused to withdraw Pelosi's fake video that someone made a fake video of its CEO Zuckerberg to test Facebook's measure of false information and see if it would make it. "Face yourself" thing.</p>
+
+ 
+
+<p>According to Facebook ’s official response, Pelosi ’s video “does not violate the platform ’s policy because everyone is free to express themselves (thoughts). If a third-party fact detection tool determines that the video is fake, the video will be tagged , Alert users to their authenticity, and reduce weight in pushes. "</p>
+
+<p>Other social giants have also stated their positions. Twitter chose to stand in line with Facebook and Instagram and would not delete these fake videos, while Google's YouTube chose to delete videos for insurance purposes.</p>
+
+<p>The situation of polarization in the science and technology circle has also sparked heated debate. Some people believe that condoning false information will cause greater confusion, especially on political and diplomatic issues, so it must be strictly controlled.</p>
+
+<p>Some people also think that these videos will not cause substantial harm to an individual, and it is enough to put a false label. Deleting them today would set a bad precedent and could lead to tighter control policies tomorrow.</p>
+
+<p>We may know this is not true, but bad influences have already occurred, especially for politicians and celebrities.</p>
+
+<h2>Fake porn</h2>
+<img class="alignnone size-full wp-image-8370" src="img/porn_logo.png" alt="" width="300" height="100" sizes="(max-width: 1024px) 100vw, 1024px"/>
+<p>On the adult website, there are a lot of pornographic videos of AI face-changing. The targets of these face-changing are mainly stars. It is because the pictures and videos of stars are easier to collect, and the data set is better to build. The second is because there is a gray industry chain because stars' videos can be sold for processing.</p>
+
+<p>The United States is already considering legislation to solve this problem</p>
+
+
+
+                <div class="clearfix"></div>
                 </div>
               </div>
             </div>
-          </div>
+          
         </section>
-        <section class="subscribe text-center">
-          <div class="container">
-            <h1><i class="fa fa-paper-plane"></i><span>Subscribe to stay in the loop</span></h1>
-            <form action="#">
-              <input type="text" name="" value="" placeholder="" required>
-              <input type="submit" name="" value="Send">
-            </form>
-          </div>
+
+
+
+        <section class="portfolio text-center section-padding" id="portfolio">
+                          <div class="container">
+            <div class="row">
+
+
+              <div class="col-md-12">
+
+                <h1 class="arrow">Prospective</h1>
+
+<h2>Promote</h2>
+<p>There are many technologies combined with GAN that can greatly improve the generation effect. For example, the  <a href="https://thispersondoesnotexist.com/">styleGAN</a> developed by Nvidia can generate high-definition fake faces</p>
+<h2>confrontation</h2>
+<p>Google open sourced the dataset. The dataset contains more than 3,000 videos taken from live actors in 28 different scenes. Google hopes to use this video data to better maintain the network security environment of the entire society and enable developers to use this data to develop new Deepfake detection tools and more effectively identify Deepfake fake videos. Google posted a corresponding article on the blog to introduce this dataset</p>
+
+<p>Facebook sponsored a kaggle contest to detect fake audio and fake video. The total prize pool reached $ 1 million</p>
+
+<p>Like any technology, there are good and bad sides. But in the end they will all merge into human society and be used by us</p>
+
+                <div class="clearfix"></div>
+                </div>
+              </div>
+            </div>
+
+
         </section>
+       
+
+
         <section class="dark-bg text-center section-padding contact-wrap" id="contact">
           <a href="#top" class="up-btn"><i class="fa fa-chevron-up"></i></a>
           <div class="container">
@@ -410,19 +291,19 @@
               <div class="col-md-4">
                 <div class="light-box box-hover">
                   <h2><i class="fa fa-map-marker"></i><span>Address</span></h2>
-                  <p>Level 6, 23 Pitt St, Sydney</p>
+                  <p>121 rue tostoi villeurbanne</p>
                 </div>
               </div>
               <div class="col-md-4">
                 <div class="light-box box-hover">
                   <h2><i class="fa fa-mobile"></i><span>Phone</span></h2>
-                  <p>+61 9 211 3747</p>
+                  <p>+33 0782310438</p>
                 </div>
               </div>
               <div class="col-md-4">
                 <div class="light-box box-hover">
                   <h2><i class="fa fa-paper-plane"></i><span>Email</span></h2>
-                  <p><a href="#">hey@halcyondays.com</a></p>
+                  <p><a href="#">rui.yang.ecl@gmail.com</a></p>
                 </div>
               </div>
             </div>
@@ -437,21 +318,7 @@
             </div>
           </div>
         </section>
-        <footer>
-          <div class="container">
-            <div class="row">
-              <div class="col-md-6">
-                <ul class="legals">
-                  <li><a href="#">Terms &amp; Conditions</a></li>
-                  <li><a href="#">Legals</a></li>
-                </ul>
-              </div>
-              <div class="col-md-6 credit">
-                <p>A free website template created exclusively for <a href="http://tympanus.net/codrops/"><em>Codrops</em></a></p>
-              </div>
-            </div>
-          </div>
-        </footer>
+
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
         <!-- Include all compiled plugins (below), or include individual files as needed -->
