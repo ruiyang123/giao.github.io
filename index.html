@@ -64,6 +64,8 @@
             </div>
           </section>
         </header>
+
+
         <section class="intro text-center section-padding" id="intro">
           <div class="container">
             <div class="row">
@@ -71,15 +73,22 @@
                 <h1 class="arrow">Introduction</h1>
                 <p> From wikipedia, The definition of <em>DeepFakes</em> :<a href="https://en.wikipedia.org/wiki/Deepfake">a branch of synthetic media in which a person in an existing image or video is replaced with someone else's likeness using artificial neural networks.</a>
 
-                <img class="alignnone size-full wp-image-8370" src="img/dp.png" alt="" width="512" height="250" sizes="(max-width: 1024px) 100vw, 1024px">
+                <figure class="image" style="width: 100% ; text-align: center;" >
+                <img  src="img/dp.png" alt="" width="512" height="250" >
+                <p  style="margin-top: 2px; color: #ADD8E6" align="center">Figure 1 : classic mechanism to make fake video</p>
+                 </figure>
+
 
                 <p>It means that DeepFake is not one single technology but contains a lot of technologies of computer vision
                 	such as Face detection, image segmentation, image fusion etc.
                 	To 2020, these technologies aren't something new. I mean those problems relevant are basically solved. 
                 </p>
                 <p>Back to the history. In 2016, Satya Mallick showed how to swap faces programmatically Ted Cruz's face to fit Donald Trump(below)
-                  <img class="alignnone size-full wp-image-8370" src="https://www.alanzucconi.com/wp-content/uploads/2018/02/seamless_cloning_parts-1024x341.jpg" alt="" width="512" height="170" srcset="https://www.alanzucconi.com/wp-content/uploads/2018/02/seamless_cloning_parts-1024x341.jpg 1024w, https://www.alanzucconi.com/wp-content/uploads/2018/02/seamless_cloning_parts-1024x341-300x100.jpg 300w, https://www.alanzucconi.com/wp-content/uploads/2018/02/seamless_cloning_parts-1024x341-768x256.jpg 768w, https://www.alanzucconi.com/wp-content/uploads/2018/02/seamless_cloning_parts-1024x341-700x233.jpg 700w, https://www.alanzucconi.com/wp-content/uploads/2018/02/seamless_cloning_parts-1024x341-24x8.jpg 24w, https://www.alanzucconi.com/wp-content/uploads/2018/02/seamless_cloning_parts-1024x341-36x12.jpg 36w, https://www.alanzucconi.com/wp-content/uploads/2018/02/seamless_cloning_parts-1024x341-48x16.jpg 48w" sizes="(max-width: 1024px) 100vw, 1024px">
+               <figure class="image" style="width: 100%;text-align: center;">
+                  <img class="alignnone size-full wp-image-8370" src="https://www.alanzucconi.com/wp-content/uploads/2018/02/seamless_cloning_parts-1024x341.jpg" alt="" width="512" height="170" style="margin-top: 20px" srcset="https://www.alanzucconi.com/wp-content/uploads/2018/02/seamless_cloning_parts-1024x341.jpg 1024w, https://www.alanzucconi.com/wp-content/uploads/2018/02/seamless_cloning_parts-1024x341-300x100.jpg 300w, https://www.alanzucconi.com/wp-content/uploads/2018/02/seamless_cloning_parts-1024x341-768x256.jpg 768w, https://www.alanzucconi.com/wp-content/uploads/2018/02/seamless_cloning_parts-1024x341-700x233.jpg 700w, https://www.alanzucconi.com/wp-content/uploads/2018/02/seamless_cloning_parts-1024x341-24x8.jpg 24w, https://www.alanzucconi.com/wp-content/uploads/2018/02/seamless_cloning_parts-1024x341-36x12.jpg 36w, https://www.alanzucconi.com/wp-content/uploads/2018/02/seamless_cloning_parts-1024x341-48x16.jpg 48w" sizes="(max-width: 1024px) 100vw, 1024px" >
+<p style="margin-top: 2px;color: #ADD8E6">Figure 2 : FaceSwap using OpenCV <a href="https://www.learnopencv.com/face-swap-using-opencv-c-python/" style="color: #ADD8E6"> (source)</a></p>
 
+</figure>
                  <p> In this case, it works well. But this tech has a major disadvantage that it can't create image that does not exist before. It can just find the source face and merge the face to the destination image. It can't change the source face's expression. </p>
 
                  <p> In 2017, A new tech about face-swap appeared on Reddit. It involves some Deep learning things like auto-encoder, CNN, LSTM etc. It changed the whole story. This new tech can really abstract the facial features and facial expression respectively and use one's facial features to mimic another's expression. After that, we can told the DeepFake born.
@@ -108,13 +117,21 @@
               <div class="col-md-12">
 
                 <h1 class="arrow">The Technology Behind DeepFake</h1>
-                <div class="features-wrapper">
+                <div class="features-wrapper" align="justify">
                   <p>In this section, I will introduce the whole thing behind the DeepFake. If you have already known the basic principle about Neural Networks you can skip the frist part.</p>
 
-                  <h2>Artificial Neural Networks</h2>
-                  <p> From wikipedia, The definition of <em>Artifical neural network</em> :<a href="https://en.wikipedia.org/wiki/Artificial_neural_network"> are computing systems vaguely inspired by the biological neural networks that constitute animal brains</a></p>
+                  <h2 align="center" style="margin-top: 20px">Artificial Neural Networks</h2>
+                  <p> From wikipedia, The definition of <em>Artifical neural network</em> :<a href="https://en.wikipedia.org/wiki/Artificial_neural_network"> are computing systems vaguely inspired by the biological neural networks that>
+				</a></p>
 
-                  <img src="img/nn.png" height="500" width="400"  alt="Portfolio Item"/>
+                  <figure class="image" style="width: 100% ;text-align: center; ">
+                  <img src="img/nn.png" width="50%"  />
+                  <p align="center" style="color: #ADD8E6; margin-top: 2px" >
+                  Figure 3 :basci structure of ANN  <a style="color: #ADD8E6" 
+                  href="https://www.researchgate.net/figure/a-The-building-block-of-deep-neural-networks-artificial-neuron-or-node-Each-input-x_fig1_312205163">(source)</a>
+                  </p>
+
+              </figure>
 
                   <p>The basic idea behind ANN(artifical neural network) is that we use a node to simulate biological neural. And we use a lot of nodes and use basic mathematical operations to link them to create a network. The figure above shows that at the input layer there are n nodes and the input value is X<sub>i</sub>. For each X<sub>i</sub> input, we link a weight(w<sub>i</sub>) to it. Then we cumulate like &sum;X<sub>i</sub>w<sub>i</sub>. Then we use an activation function to transform this value or more specifically is to add non-linear property. Generally speaking, the ANN can simulate any functions linear or non linear.
                     <br/>
@@ -122,19 +139,32 @@
                   Generally speaking, the ANN can simulate any functions linear or non-linear. For a classical machine learning problems like supervised learning, we use a large dataset with labels, and we calculate the error between the output and the label to create the gradient Then we can use back propagation gradient descent to train our network.
                   </p>
 
-                 <h2>CNN(convolutional neural network)</h2>
-                 <p> A convolutional Neural Network is a kind of ANN that use convolution kernel to detect the image.
-                  <img class="qc rw ey t u ig ak ip" width="600" height="300" role="presentation" src="https://miro.medium.com/max/3288/1*uAeANQIOQPqWZnnuH-VEyw.jpeg">
-                  This figure shows the structure of CNN that is used for solving handwritten digit recognition(A basic probleme of computer vision).
+                 <h2 align="center" style="margin-top: 20px">CNN(convolutional neural network)</h2>
+                 <p> A convolutional Neural Network is a kind of ANN that use convolution kernel to detect the image.This figure shows the structure of CNN that is used for solving handwritten digit recognition(A basic probleme of computer vision).</p>
+
+
+                  <figure class="image" style="width: 100%;text-align: center;">
+                  <img  width="600" height="300" role="presentation" src="https://miro.medium.com/max/3288/1*uAeANQIOQPqWZnnuH-VEyw.jpeg" style="margin-top: 20px" >
+
+                  <p style="margin-top: 2px;color: #ADD8E6" align="center">Figure 4 :Basic CNN <a  style="color: #ADD8E6"  href="https://towardsdatascience.com/a-comprehensive-guide-to-convolutional-neural-networks-the-eli5-way-3bd2b1164a53">(source)</a></p>
+                 </figure>
+
+
+                 <p>
 
                   For beginners, it seems very complicated. But we don't need to understand all the techniques behind this.So just forget the convolution kernel or max-pooling things. We focus on the input and the output. The input is a figure and the output is a vecteur.
                   We just admit the truth that CNN is good at detecting the structure or profil of an image.  
                  </p>
-                 <h2>Auto-Encoder(core technologie)</h2>
+                 <h2 align="center" style="margin-top: 20px">Auto-Encoder(core technologie)</h2>
                  <p>An autoencoder is a type of artificial neural network used to learn efficient data codings in an unsupervised manner. The aim of an autoencoder is to learn a representation in the latent space (encoding) for a set of data, typically for dimensionality reduction, by training the network to ignore signal “noise”.
 
                  for exemple in the handwriten digit recognition.</p>
+
+                 <figure class="image" style="width: 100%;text-align: center;">
                  <img class="alignnone size-full wp-image-8370" src="img/auto_encoder.png" alt="" width="512" height="250" sizes="(max-width: 1024px) 100vw, 1024px"/>
+                 <p style="margin-top: 2px;color: #ADD8E6" align="center">Figure 5 :Basic auto-encoder <a  style="color: #ADD8E6"  href="https://www.researchgate.net/publication/320658590_Deep_Clustering_with_Convolutional_Autoencoders">(source)</a></p>
+                </figure>
+
 
                <p>  The input is a image (28*28). The input dimension is 784. But in fact that a lot of space or dimension is useless for classification.
                  Then we can figure out a little about the structure. Here we have a encoder with blue, a decoder with green. and in the middle it's a vector of dimension 10. The vector represents the projection of input image in the latent space.</p>
@@ -143,80 +173,129 @@
 
                 <p>After encoder we successfully project a image(28*28) to a vector 10. And then we need to recovery this vectot to a image. So we can find there is a structure named DeCNN that means deconvolution neural network. So what is that? For a normal CNN the input <b>X</b> with dimension 4*4, we use a kernal <b>C</b> size(3*3) the output <b>Y</b> should be a matrix (2*2). And if we expand the matrix to a vector the formule to calculate is Y = C*X</p> 
 
-              <img class="alignnone size-full wp-image-8370" src="img/decnn.png" alt="" width="300" height="100" sizes="(max-width: 1024px) 100vw, 1024px"/>
 
-              <p> We can find the Y is (4*1), C is (4*16) and the X is (16*1). So if we want to increase the input size, we just use the transpose of C to product Y. That's the inverse of CNN</p>
+
+                 <figure class="image" style="width: 100%;text-align: center;">
+                 <img class="alignnone size-full wp-image-8370" src="img/decnn.png" alt="" width="500" height="150" sizes="(max-width: 1024px) 100vw, 1024px"/>
+                 <p style="margin-top: 2px;color: #ADD8E6" align="center">Figure 6 : Matrix for CNN kernel <a  style="color: #ADD8E6"  href="https://zhuanlan.zhihu.com/p/34042498">(source)</a></p>
+                </figure>
+
+
+            
+
+              <p align="text-right"> We can find the Y is (4*1), C is (4*16) and the X is (16*1). So if we want to increase the input size, we just use the transpose of C to product Y. That's the inverse of CNN</p>
 
               <p>Generally speaking, the auto-encoder is just a technologie that make a projection to latent space. Generally we can compress the input information and abstract the information.</p>
 
-              <h2>Back to Face Swap</h2>
-              <p> Here is the basic structure of face swap</p>
+            <h2 align="center" style="margin-top: 20px">Back to Face Swap</h2>
+              
+              <figure class="image" style="width: 100%;text-align: center;">
               <img class="wp-image-8427 size-full aligncenter" src="https://www.alanzucconi.com/wp-content/uploads/2018/03/deepfakes_01d.png" alt="" width="750" height="327" srcset="https://www.alanzucconi.com/wp-content/uploads/2018/03/deepfakes_01d.png 750w, https://www.alanzucconi.com/wp-content/uploads/2018/03/deepfakes_01d-300x131.png 300w, https://www.alanzucconi.com/wp-content/uploads/2018/03/deepfakes_01d-700x305.png 700w, https://www.alanzucconi.com/wp-content/uploads/2018/03/deepfakes_01d-24x10.png 24w, https://www.alanzucconi.com/wp-content/uploads/2018/03/deepfakes_01d-36x16.png 36w, https://www.alanzucconi.com/wp-content/uploads/2018/03/deepfakes_01d-48x21.png 48w" sizes="(max-width: 750px) 100vw, 750px">
-              <p>The structure inside the encoder and decoder is just some convolution neural networks stack together. Just like the handwritten digit recognition</p>
+               <p style="margin-top: 2px;color: #ADD8E6" align="center">Figure 7 : Basic structure of Face Swap <a  style="color: #ADD8E6"  href="https://www.alanzucconi.com/2018/03/14/understanding-the-technology-behind-deepfakes/">(source)</a></p>
+          </figure>
+              <p>The diagram above shows an image (in this specific case, a face) being fed to an encoder. Its result is a lower dimensional representation of that very same face, which is sometimes referred to as base vector or latent face. Depending on the network architecture, the latent face might not look like a face at all. When passed through a decoder, the latent face is then reconstructed. Autoencoders are lossy, hence the reconstructed face is unlikely to have the same level of detail that was originally present.</p>
 
-              <p> so we can find that there are an encoder and two decoders A and B.
-We want the encoder can find something common. That means the vector after the encoder can tell us if this face is smiling or not, if the eyes are closed or not, if she is speaking or not. And the encoder can tell us something special about this face.Like the shape of the eyes or the shape of the mouth. And that's why we need to train two decoders for each face but only one encoder for two faces</p>
+              <p> 
+We want the encoder can learn something common. That means the vector after the encoder can tell us if this face is smiling or not, if the eyes are closed or not, if she is speaking or not. And the encoder can tell us something special about this face.Like the shape of the eyes or the shape of the mouth. And that's why we need to train two decoders for each face but only one encoder for two faces</p>
 
-<p> But how it is possible? </p>
+<p> But how to train this neural network?</p>
 
-<img class="qc rw ey t u ig ak ip" width="300" height="300" role="presentation" src="img/train.png">
-<p> During the training process, we input the picture of A and restore the face of A through the encoder and decoderA; then we input the picture of B and restore the face of B through the same encoder but different decoders. This process is continuously iterated until the loss drops to a threshold. </p>
+<figure class="image" style="width: 100%;text-align: center;">
+<img  width="300" height="300" role="presentation" src="img/train.png">
 
+ <p style="margin-top: 2px;color: #ADD8E6" align="center">Figure 8 : Loss functions <a  style="color: #ADD8E6"  href="https://zhuanlan.zhihu.com/p/34042498">(source)</a></p>
+
+</figure>
+<p> During the training process, we input the picture of the face A and reconstruct the face of A through the encoder and decoderA; then we input the picture of B and reconstruct the face of B through the same encoder but different decoders. This process is continuously iterated until the loss converge to a threshold. </p>
+
+<p>After that, we could have a look the detail of the encoder and decoder</p>
+
+<figure class="image" style="width: 100%;text-align: center;">
 <center>
 	<img src="img/encoder.png" width="30%" height="30%" />
 	<img src="img/decoder.png" width="30%" height="30%"/>
 </center>
-<p>We found that the entire network structure is very simple, just a superposition of some CNN</p>
+ <p style="margin-top: 2px;color: #ADD8E6" align="center">Figure 9 : structure of encoder and decoder <a  style="color: #ADD8E6"  href="https://zhuanlan.zhihu.com/p/34042498">(source)</a></p>
+
+</figure>
+
+
+
+
+
+<figure class="image" style="width: 100%;text-align: center;">
 <center>
 	<img src="img/detail1.png" width="30%" height="30%" />
 	<img src="img/detail2.png" width="30%" height="30%"/>
 </center>
+ <p style="margin-top: 2px;color: #ADD8E6" align="center">Figure 10 : conv block and upscale block <a  style="color: #ADD8E6"  href="https://zhuanlan.zhihu.com/p/34042498">(source)</a></p>
 
+</figure>
+
+
+<p>We found that the entire network structure is very simple, just a superposition of some CNNs</p>
 <p>There is only one thing special. That is the function PixelShuffler() in the upscale. It can reduce the number of filters to 1/4 and double the width and height This layer may be used to reduce the spatial dependency of the image and increase the difficulty of learning, and the result is more reliable</p>
 
-<p>Finally, I want to say that if you want to train your own network, you can use GAN or try to change the error function or use mask, etc.</p>
-      
-                <!--  <div class="col-md-4 wp2">
-                    <div class="icon">
-                      <i class="fa fa-laptop shadow"></i>
-                    </div>
-                    <h2>Digital Design</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a lorem quis neque interdum consequat ut sed sem. Duis quis tempor nunc. Interdum et malesuada fames ac ante ipsum
-                    primis in faucibus.</p>
-                  </div>
-                  <div class="col-md-4 wp2 delay-05s">
-                    <div class="icon">
-                      <i class="fa fa-code shadow"></i>
-                    </div>
-                    <h2>Web Development</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a lorem quis neque interdum consequat ut sed sem. Duis quis tempor nunc. Interdum et malesuada fames ac ante ipsum
-                    primis in faucibus.</p>
-                  </div>
-                  <div class="col-md-4 wp2 delay-1s">
-                    <div class="icon">
-                      <i class="fa fa-heart shadow"></i>
-                    </div>
-                    <h2>Creative Direction</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a lorem quis neque interdum consequat ut sed sem. Duis quis tempor nunc. Interdum et malesuada fames ac ante ipsum
-                    primis in faucibus.</p>
-                  </div>-->
+<h2 align="center" style="margin-top: 20px"> GAN(cycle-GAN) version</h2>
+
+<p>We have discussed the original version before, but the original version still has many problems, such as long training time to get good results, low image resolution, etc. So now we decided to add the adversarial neural network.</p>
+
+<figure class="image" style="width: 100%;text-align: center;">
+<center>
+	<img src="img/GAN_version.jfif" width="30%" height="380" />
+	<img src="img/gan_loss.jpg" width="30%" height="50%"/>
+</center>
+ <p style="margin-top: 2px;color: #ADD8E6" align="center">Figure 11 : GAN version architecture <a  style="color: #ADD8E6"  href="https://github.com/shaoanlu/faceswap-GAN">(source)</a></p>
+
+</figure>
+
+<p>As can be seen from the figure, in the training phase, firstly input the image <b>Person A</b> with a human face, and then obtain the <b>Real face A </b> through MTCNN face recognition, and then warp the<b> Real face A </b> to obtain <b>Warped face A</b> (note, Distortion only distorts around the face, but does not distort the features of the face, such as eyes, nose, etc. This method is not fundamentally different from adding mosaic to the image), and then the warped face image is reconstruct by the autoencoder to obtain <b>Reconstructed face A</b> after reconstruction.</p>
+
+<p> After obtaining the <b>Reconstructed face A</b>, it does not end. It will also obtain a facial feature mask, which is called <b>Segmentation mask</b> in the figure. The facial feature mask will perform operations on the reconstructed face. The purpose is to obtain only the facial features The other parts are no longer needed, and then the facial feature domain is used for warped face A after warping to obtain the final result <b>Masked face A</b>.</p>
+
+<p>And in the test phase, the process is the same, pass in the image <b>Person B</b> with a face, and then MTCNN recognizes the face, and then directly pass in the face without distortion. Because we used Person A during training, At this time, the real face of Person B is used, and the <b>auto-encoder will consider it as a distorted face A</b>, that is, Warped A. At this time, the reconstruction operation will be performed, and then the face feature mask will be used, only the required facial feature parts are obtained, and then combined with Real face B, the final result face B can be obtained, but because its features have the characteristics of face A, it looks like face A.</p>
+
+<p>Faceswap-GAN uses 3 different losses to train the entire neural network, namely
+<ul>
+	<li>MAE Loss(reconstruction loss) : Compare the difference between the reconstructed face and the real face, specifically, use the average absolute error (MAE) to calculate each pixel in the image, and hope to reduce this loss to a minimum with training.</li>
+	<li>Adversarial Loss : The discriminator judges whether the image is real or false. For the generator, it hopes that the image generated will be marked as real by the discriminator, and for the discriminator, it wants to mark the image generated by the generator as false.</li>
+	<li>Perceptual Loss : It is used to improve the direction of the eyeballs in the generated image, make the generated image more realistic, and smooth the artifacts that may be generated in the generated image. This loss uses the VggFace model</li>
+</ul>
+
+</p>
+
+<figure class="image" style="width: 100%;text-align: center;">
+<img  width="600" height="400" role="presentation" src="img/gan_result.png">
+
+ <p style="margin-top: 2px;color: #ADD8E6" align="center">Figure 12 : Exemple results <a  style="color: #ADD8E6"  href="https://github.com/shaoanlu/faceswap-GAN">(source)</a></p>
+
+</figure>
                   <div class="clearfix"></div>
                 </div>
               </div>
             </div>
           </div>
+          <a href="#" style="margin-top: 30px">back to guide page</a>. 
         </section>
-        <section class="text-center" id="responsive">
+        <section class="text-center" id="responsive" >
                  <div class="container">
             <div class="row">
 
 
-              <div class="col-md-12">
+              <div class="col-md-12" align="justify">
 
-                <h1 class="arrow">Influence and security</h1>
-<h2>Fake News</h2>
+                <h1 class="arrow" align="center">Influence and security</h1>
+<h2 align="center">Fake News</h2>
 <p>Earlier, Nancy Pelosi, the speaker of the US House of Representatives, experienced a Fake video. Someone made a video of her speech through editing, stitching and slow-motion. Although she didn't use AI technology, she looked a little unconscious, stuttered, spoke slowly, like drunk. </p>
-<img class="alignnone size-full wp-image-8370" src="img/trump.png" alt="" width="300" height="500" sizes="(max-width: 1024px) 100vw, 1024px"/>
+
+
+<figure class="image" style="width: 100%;text-align: center;">
+<img class="alignnone size-full wp-image-8370" src="img/trump.png" alt="" width="500" height="350" sizes="(max-width: 1024px) 100vw, 1024px"/>
+
+ <p style="margin-top: 2px;color: #ADD8E6" align="center">Figure 12 : Pelosi Fake Video <a  style="color: #ADD8E6"  href="https://www.theguardian.com/us-news/2020/feb/09/nancy-pelosi-trump-state-of-the-union-video-twitter-facebook">(source)</a></p>
+
+</figure>
+
 
 <p>The video even attracted the ridicule of President Trump (the two have always been different).</p>
 
@@ -234,8 +313,17 @@ We want the encoder can find something common. That means the vector after the e
 
 <p>We may know this is not true, but bad influences have already occurred, especially for politicians and celebrities.</p>
 
-<h2>Fake porn</h2>
+<h2 align="center"> Fake porn</h2>
+
+<figure class="image" style="width: 100%;text-align: center;">
 <img class="alignnone size-full wp-image-8370" src="img/porn_logo.png" alt="" width="300" height="100" sizes="(max-width: 1024px) 100vw, 1024px"/>
+
+ <p style="margin-top: 2px;color: #ADD8E6" align="center">Figure 13 : Pornhub logo</p>
+
+</figure>
+
+
+
 <p>On the adult website, there are a lot of pornographic videos of AI face-changing. The targets of these face-changing are mainly stars. It is because the pictures and videos of stars are easier to collect, and the data set is better to build. The second is because there is a gray industry chain because stars' videos can be sold for processing.</p>
 
 <p>The United States is already considering legislation to solve this problem</p>
@@ -246,7 +334,7 @@ We want the encoder can find something common. That means the vector after the e
                 </div>
               </div>
             </div>
-          
+          <a href="#" style="margin-top: 30px">back to guide page</a>. 
         </section>
 
 
@@ -256,27 +344,103 @@ We want the encoder can find something common. That means the vector after the e
             <div class="row">
 
 
-              <div class="col-md-12">
+              <div class="col-md-12" align="justify">
 
-                <h1 class="arrow">Prospective</h1>
+                <h1 class="arrow" align="center">Prospective</h1>
+<h2 align="center" style="margin-top: 20px"> Deepfake Detection</h2>
+<p>Most image detection methods cannot be used for video because the frame data is severely degraded after video compression. In addition, video has temporal characteristics that change between groups of frames, so it is challenging for methods designed to detect only static images. This section focuses on Deepfake video detection methods and divides them into two categories: methods that use temporal features and methods that explore visual artifacts within a frame.</p>
 
-<h2>Promote</h2>
-<p>There are many technologies combined with GAN that can greatly improve the generation effect. For example, the  <a href="https://thispersondoesnotexist.com/">styleGAN</a> developed by Nvidia can generate high-definition fake faces</p>
-<h2>confrontation</h2>
-<p>Google open sourced the dataset. The dataset contains more than 3,000 videos taken from live actors in 28 different scenes. Google hopes to use this video data to better maintain the network security environment of the entire society and enable developers to use this data to develop new Deepfake detection tools and more effectively identify Deepfake fake videos. Google posted a corresponding article on the blog to introduce this dataset</p>
+<h3>A. Temporal Features</h3>
 
-<p>Facebook sponsored a kaggle contest to detect fake audio and fake video. The total prize pool reached $ 1 million</p>
 
-<p>Like any technology, there are good and bad sides. But in the end they will all merge into human society and be used by us</p>
+<figure class="image" style="width: 100%;text-align: center;">
+<img class="alignnone size-full wp-image-8370" src="img/deepDetect.png" alt="" width="600"  sizes="(max-width: 1024px) 100vw, 1024px"/>
+
+ <p style="margin-top: 2px;color: #ADD8E6" align="center">Figure 13 : Architecture of a LSTM Detection network<a  style="color: #ADD8E6"  href="https://engineering.purdue.edu/~dgueraco/content/deepfake.pdf">(source)</a></p>
+
+</figure>
+
+
+<ul>
+	<li> CNN for feature extraction</li>
+	<li> LSTM for sequence processing</li>
+	<li> Given an unseen test sequence, we obtain a set of features for each frame that are generated by the CNN. Afterwards, we concatenate the features of multiple consecutive frames and pass them to the LSTM for analysis. We finally produce an estimate of the likelihood of the sequence being either a deepfake or a nonmaninpulated video.</li>
+</ul>
+
+<figure class="image" style="width: 100%;text-align: center;">
+<img class="alignnone size-full wp-image-8370" src="img/dr.png" alt="" width="600"  sizes="(max-width: 1024px) 100vw, 1024px"/>
+
+ <p style="margin-top: 2px;color: #ADD8E6" align="center">Figure 14 : The result of the LSTM Detection network<a  style="color: #ADD8E6"  href="https://engineering.purdue.edu/~dgueraco/content/deepfake.pdf">(source)</a></p>
+
+</figure>
+
+<h3>B. Deep Classifiers</h3>
+<p>In this section, we firstly decompose videos into frames then search the features within one single frame. These features are then distributed into a deep classifier to make the differentiate. </p>
+
+<figure class="image" style="width: 100%;text-align: center;">
+<img class="alignnone size-full wp-image-8370" src="img/deepclass.png" alt="" width="600"  sizes="(max-width: 1024px) 100vw, 1024px"/>
+
+ <p style="margin-top: 2px;color: #ADD8E6" align="center">Figure 15 : Architecture of Deep Classfier<a  style="color: #ADD8E6"  href="https://arxiv.org/pdf/1909.11573.pdf">(source)</a></p>
+
+</figure>
+
+<ul>
+	<li> In the pre-processing phase, faces are detected and scaled to 128x128</li>
+	<li> Then we use <strong>VGG-19</strong> to extract the latent features which are the inputs to the capsule network</li>
+	<li> The capsule network consists of three primary capsules and two output capsules, one for real and one for fake images.</li>
+	<li>The outputs of the three capsules are dynamically routed to the output capsules</li>
+</ul>
+
+
+
+
+
+
+
 
                 <div class="clearfix"></div>
                 </div>
               </div>
             </div>
 
-
+<a href="#" style="margin-top: 30px">back to guide page</a>. 
         </section>
        
+
+
+
+<section class="portfolio text-center section-padding" id="team">
+                          <div class="container">
+            <div class="row">
+
+
+              <div class="col-md-12" align="left">
+
+                <h1 class="arrow" align="center">References</h1>
+
+<ul>
+	<li> [1] : Alan Zucconi - <a id = "ref_1" herf="https://www.alanzucconi.com/2018/03/14/understanding-the-technology-behind-deepfakes/" style="color: #90ee90"> An introduction to DeepFakes</a></li>
+	<li> [2] : github repository - <a id = "ref_2" href="https://github.com/shaoanlu/faceswap-GAN" style="color: #90ee90"> GAN version</a></li>
+	<li> [3] : github repository - <a id = "ref_3" href="https://github.com/deepfakes/faceswap" style="color: #90ee90"> original version</a></li>
+	<li> [4] : Taeksoo Kim, Moonsu Cha, Hyunsoo Kim - <a id = "ref_4" href="https://arxiv.org/pdf/1703.05192.pdf" style="color: #90ee90"> Learning to Discover Cross-Domain Relations with Generative Adversarial Networks</a></li>
+	<li> [5] : Alec Radford & Luke Metz - <a id = "ref_5" href="https://arxiv.org/pdf/1511.06434.pdf" style="color: #90ee90"> Unsupervised Representation Learning With Deep Convolutional Generative Adversarial Networks</a></li>
+	<li> [6] : Thanh, Cuong - <a id = "ref_6" href="https://arxiv.org/pdf/1909.11573.pdf" style="color: #90ee90"> Deep Learning for Deepfakes Creation and Detection</a></li>
+	<li> [7] : Egor Zakharov , Aliaksandra Shysheya , Egor Burkov1,2 Victor Lempitsky , Samsung AI Center , Moscow 2Skolkovo Institute of Science and Technology - <a id = "ref_7" href="https://arxiv.org/pdf/1905.08233.pdf" style="color: #90ee90"> Few-Shot Adversarial Learning of Realistic Neural Talking Head Models </a></li>
+	<li>[8] : Guera, D., and Delp, E. J. (2018, November) - <a id = "ref_8" href="https://engineering.purdue.edu/~dgueraco/content/deepfake.pdf" style="color: #90ee90">Deepfake video detection using recurrent neural networks.
+In 2018 15th IEEE International Conference on Advanced Video and Signal Based Surveillance (AVSS)
+(pp. 1-6). IEEE.</a>
+</li>
+
+</ul>
+
+                <div class="clearfix"></div>
+                </div>
+              </div>
+            </div>
+
+<a href="#" style="margin-top: 30px">back to guide page</a>. 
+        </section>
+
 
 
         <section class="dark-bg text-center section-padding contact-wrap" id="contact">
@@ -310,8 +474,8 @@ We want the encoder can find something common. That means the vector after the e
             <div class="row">
               <div class="col-md-12">
                 <ul class="social-buttons">
-                  <li><a href="#" class="social-btn"><i class="fa fa-dribbble"></i></a></li>
-                  <li><a href="#" class="social-btn"><i class="fa fa-twitter"></i></a></li>
+                  <li><a href="https://github.com/ruiyang123/giao.github.io" class="social-btn"><i class="fa fa-dribbble"></i></a></li>
+                  <li><a href="https://twitter.com/giao66543020" class="social-btn"><i class="fa fa-twitter"></i></a></li>
                   <li><a href="#" class="social-btn"><i class="fa fa-envelope"></i></a></li>
                 </ul>
               </div>
